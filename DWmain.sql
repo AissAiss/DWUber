@@ -56,6 +56,44 @@ create table timeOfDay
     /* C'est quoi shift ? */
 );
 
+
+drop table course;
+
+create table course
+(
+    idUtilisateur integer primary key,
+    idAddresseDep integer primary key,
+    idAddresseArr integer primary key,
+    idOrderDate integer primary key,
+    idDepDate integer primary key,
+    idArrDate integer primary key,
+    idDriver integer primary key,
+    idOrderTime integer primary key,
+    idDepTime integer primary key,
+    idArrTime integer primary key,
+    prix float,
+    note integer,
+    disatance float
+)
+
+alter table course add foreign key(idUtilisateur) references utilisateur(id);
+alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
+alter table course add foreign key(idAddresseArr) references adresse(idAdresse);
+alter table course add foreign key(idOrderDate) references dateC(idDate);
+
+alter table course add foreign key(idDepDate) references dateC(idDate);
+alter table course add foreign key(idArrDate) references dateC(idDate);
+
+alter table course add foreign key(idDriver) references chauffeur(idChauffeur);
+
+alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
+
+alter table course add foreign key(idDepTime) references timeOfDay(idTime);
+alter table course add foreign key(idArrTime) references timeOfDay(idTime);
+
+
+
+
 drop table recherche;
 
 create table recherche
