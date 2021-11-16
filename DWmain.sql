@@ -9,7 +9,7 @@ create table utilisateur
     id integer primary key,
     firstName varchar2(50),
     LastName varchar2(50),
-    dateBirth date
+    age integer
 );
 
 
@@ -18,6 +18,7 @@ create table adresse
     idAdresse integer primary key,
     city varchar2(50),
     street varchar2(50),
+    codeP number(5),
     nb integer
 );
 
