@@ -16,16 +16,6 @@ create table utilisateur
     age integer
 );
 
-
-create table adresse
-(
-    idAdresse integer primary key,
-    nb integer,
-    street varchar2(50),
-    codeP integer,
-    city varchar2(50)
-);
-
 create table dateC
 (
     idDate integer primary key,
@@ -59,8 +49,9 @@ create table timeOfDay
  create table lieu
  (
     idLieu integer primary key,
+    codePostal integer,
     ville varchar2(50),
-    departement varchar2(50),
+    nomQuartier varchar2(50),
     revenuMoyen integer,
     populationQuartier integer 
  );
@@ -72,9 +63,7 @@ create table course
     idUtilisateur integer ,
     idAddresseDep integer ,
     idAddresseArr integer  ,
-    idOrderDate integer  ,
-    idDepDate integer  ,
-    idArrDate integer  ,
+    idDate integer  ,
     idDriver integer  ,
     idOrderTime integer  ,
     idDepTime integer  ,
@@ -101,9 +90,7 @@ create table recherche
 alter table course add foreign key(idUtilisateur) references utilisateur(id);
 alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
 alter table course add foreign key(idAddresseArr) references adresse(idAdresse);
-alter table course add foreign key(idOrderDate) references dateC(idDate);
-alter table course add foreign key(idDepDate) references dateC(idDate);
-alter table course add foreign key(idArrDate) references dateC(idDate);
+alter table course add foreign key(idDate) references dateC(idDate);
 alter table course add foreign key(idDriver) references chauffeur(idChauffeur);
 alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
 alter table course add foreign key(idDepTime) references timeOfDay(idTime);
