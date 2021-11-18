@@ -30,7 +30,6 @@ create table dateC
     dayOfWeek varchar2(50),
     monthC varchar2(50),
     yearC varchar2(50),
-    monthC varchar2(50),
     fiscalYearMonth varchar2(50),
     holiday boolean,
     weekday boolean
