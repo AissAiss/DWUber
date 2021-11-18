@@ -25,7 +25,7 @@ create table adresse
 create table dateC
 (
     idDate integer primary key,
-    dateC date,
+    dateCourante date,
     fullDateDesc varchar(50),
     dayOfWeek varchar2(50),
     monthC varchar2(50),
