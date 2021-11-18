@@ -75,7 +75,7 @@ create table course
     prix float,
     note integer,
     disatance float
-)
+);
 
 alter table course add foreign key(idUtilisateur) references utilisateur(id);
 alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
