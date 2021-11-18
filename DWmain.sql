@@ -3,6 +3,8 @@ drop table adresse;
 drop table dateC;
 drop table chauffeur;
 drop table timeOfDay;
+drop table recherche;
+drop table course;
 
 create table utilisateur
 (
@@ -57,7 +59,7 @@ create table timeOfDay
 );
 
 
-drop table course;
+
 
 create table course
 (
@@ -76,6 +78,18 @@ create table course
     disatance float
 );
 
+create table recherche
+(
+    idUtilisateur integer ,
+    idAddresseDep integer ,
+    idAddresseArr integer ,
+    idDateRecherche integer ,
+    idTimeSearch integer ,
+    nbRechercheNA integer,
+    RechComm float,
+    nbTaxiLibre integer
+);
+
 alter table course add foreign key(idUtilisateur) references utilisateur(id);
 alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
 alter table course add foreign key(idAddresseArr) references adresse(idAdresse);
@@ -90,23 +104,6 @@ alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
 
 alter table course add foreign key(idDepTime) references timeOfDay(idTime);
 alter table course add foreign key(idArrTime) references timeOfDay(idTime);
-
-
-
-
-drop table recherche;
-
-create table recherche
-(
-    idUtilisateur integer ,
-    idAddresseDep integer ,
-    idAddresseArr integer ,
-    idDateRecherche integer ,
-    idTimeSearch integer ,
-    nbRechercheNA integer,
-    RechComm float,
-    nbTaxiLibre integer
-);
 
 alter table recherche add foreign key(idUtilisateur) references utilisateur(id);
 alter table recherche add foreign key(idAddresseDep) references adresse(idAdresse);
