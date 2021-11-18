@@ -55,12 +55,13 @@ create table timeOfDay
     sec integer,
     AMPM varchar2(2)
 );
+
  create table lieu
  (
-     idLieu integer primary key,
-     ville varchar2(50),
-     region varchar2(50),
-     revenuMoyen integer,
+    idLieu integer primary key,
+    ville varchar2(50),
+    departement varchar2(50),
+    revenuMoyen integer,
     populationQuartier integer 
  );
 
