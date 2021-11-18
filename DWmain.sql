@@ -23,7 +23,6 @@ create table adresse
     street varchar2(50),
     codeP integer,
     city varchar2(50)
-    
 );
 
 create table dateC
