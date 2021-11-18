@@ -21,7 +21,7 @@ create table adresse
     idAdresse integer primary key,
     city varchar2(50),
     street varchar2(50),
-    codeP number(5),
+    codeP integer,
     nb integer
 );
 
@@ -36,8 +36,6 @@ create table dateC
     fiscalYearMonth varchar2(50),
     holiday integer,
     weekdayC integer
-
-
 );
 
 create table chauffeur
