@@ -107,7 +107,7 @@ create table recherche
     nbRechercheNA integer,
     RechComm float,
     nbTaxiLibre integer
-)
+);
 
 alter table recherche add foreign key(idUtilisateur) references utilisateur(id);
 alter table recherche add foreign key(idAddresseDep) references adresse(idAdresse);
