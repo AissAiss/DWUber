@@ -54,7 +54,6 @@ create table timeOfDay
     minute integer,
     sec integer,
     AMPM varchar2(2)
-    /* C'est quoi shift ? */
 );
 
 
