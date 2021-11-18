@@ -61,8 +61,8 @@ create table timeOfDay
 create table course
 (
     idUtilisateur integer ,
-    idAddresseDep integer ,
-    idAddresseArr integer  ,
+    idLieDep integer ,
+    idLieuArr integer  ,
     idDate integer  ,
     idDriver integer  ,
     idOrderTime integer  ,
@@ -88,8 +88,8 @@ create table recherche
 );
 
 alter table course add foreign key(idUtilisateur) references utilisateur(id);
-alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
-alter table course add foreign key(idAddresseArr) references adresse(idAdresse);
+alter table course add foreign key(idLieDep) references lieu(idLieu);
+alter table course add foreign key(idLieuArr) references lieu(idLieu);
 alter table course add foreign key(idDate) references dateC(idDate);
 alter table course add foreign key(idDriver) references chauffeur(idChauffeur);
 alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
