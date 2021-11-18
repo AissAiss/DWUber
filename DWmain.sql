@@ -19,10 +19,11 @@ create table utilisateur
 create table adresse
 (
     idAdresse integer primary key,
-    city varchar2(50),
+    nb integer,
     street varchar2(50),
     codeP integer,
-    nb integer
+    city varchar2(50)
+    
 );
 
 create table dateC
