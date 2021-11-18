@@ -31,8 +31,8 @@ create table dateC
     monthC varchar2(50),
     yearC varchar2(50),
     fiscalYearMonth varchar2(50),
-    holiday boolean,
-    weekdayC boolean
+    holiday integer,
+    weekdayC integer
 
 
 );
