@@ -62,16 +62,16 @@ drop table course;
 
 create table course
 (
-    idUtilisateur integer primary key,
-    idAddresseDep integer primary key,
-    idAddresseArr integer primary key,
-    idOrderDate integer primary key,
-    idDepDate integer primary key,
-    idArrDate integer primary key,
-    idDriver integer primary key,
-    idOrderTime integer primary key,
-    idDepTime integer primary key,
-    idArrTime integer primary key,
+    idUtilisateur integer ,
+    idAddresseDep integer ,
+    idAddresseArr integer  ,
+    idOrderDate integer  ,
+    idDepDate integer  ,
+    idArrDate integer  ,
+    idDriver integer  ,
+    idOrderTime integer  ,
+    idDepTime integer  ,
+    idArrTime integer  ,
     prix float,
     note integer,
     disatance float
@@ -99,11 +99,11 @@ drop table recherche;
 
 create table recherche
 (
-    idUtilisateur integer primary key,
-    idAddresseDep integer primary key,
-    idAddresseArr integer primary key,
-    idDateRecherche integer primary key,
-    idTimeSearch integer primary key,
+    idUtilisateur integer ,
+    idAddresseDep integer ,
+    idAddresseArr integer ,
+    idDateRecherche integer ,
+    idTimeSearch integer ,
     nbRechercheNA integer,
     RechComm float,
     nbTaxiLibre integer
