@@ -43,7 +43,6 @@ create table chauffeur
     idChauffeur integer primary key,
     firstName varchar2(50),
     lastName varchar2(50)
-
 );
 
 create table timeOfDay
