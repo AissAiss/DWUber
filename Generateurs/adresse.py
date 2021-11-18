@@ -23,7 +23,7 @@ for i in range(0, NB_ADRESSE):
     ville = v[n]
     codeP = cp[n]
     j = random.randint(1, 1200)
-    file.write("INSERT INTO " + NOM_DE_LA_TABLE + " VALUES (" + str(i) + ",'" + ville + "', '" + random.choice(r) + "', '" + codeP + "', " + str(j) + ");\n")
+    file.write("INSERT INTO " + NOM_DE_LA_TABLE + " VALUES (" + str(i) + ", " + str(j) + ", '" + random.choice(r) + "', '" + codeP + "','" + ville + "');\n")
 
 
 file.close()
