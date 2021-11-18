@@ -5,6 +5,7 @@ drop table adresse;
 drop table dateC;
 drop table chauffeur;
 drop table timeOfDay;
+drop table lieu;
 
 
 create table utilisateur
@@ -54,7 +55,14 @@ create table timeOfDay
     sec integer,
     AMPM varchar2(2)
 );
-
+ create table lieu
+ (
+     idLieu integer primary key,
+     ville varchar2(50),
+     region varchar2(50),
+     revenuMoyen integer,
+    populationQuartier integer 
+ );
 
 
 
@@ -77,33 +85,30 @@ create table course
 
 create table recherche
 (
-    idUtilisateur integer ,
-    idAddresseDep integer ,
-    idAddresseArr integer ,
     idDateRecherche integer ,
     idTimeSearch integer ,
+    idQuartier integer ,
+    nbRecherche integer,
     nbRechercheNA integer,
-    RechComm float,
-    nbTaxiLibre integer
+    nbRechercheA integer,
+    ratioRechRechNA float(3),
+    nbTaxiLibres integer,
+    nbTaxiOccupes integer,
+    tempsAttenteMoyen integer
 );
 
 alter table course add foreign key(idUtilisateur) references utilisateur(id);
 alter table course add foreign key(idAddresseDep) references adresse(idAdresse);
 alter table course add foreign key(idAddresseArr) references adresse(idAdresse);
 alter table course add foreign key(idOrderDate) references dateC(idDate);
-
 alter table course add foreign key(idDepDate) references dateC(idDate);
 alter table course add foreign key(idArrDate) references dateC(idDate);
-
 alter table course add foreign key(idDriver) references chauffeur(idChauffeur);
-
 alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
-
 alter table course add foreign key(idDepTime) references timeOfDay(idTime);
 alter table course add foreign key(idArrTime) references timeOfDay(idTime);
 
-alter table recherche add foreign key(idUtilisateur) references utilisateur(id);
-alter table recherche add foreign key(idAddresseDep) references adresse(idAdresse);
-alter table recherche add foreign key(idAddresseArr) references adresse(idAdresse);
+
 alter table recherche add foreign key(idDateRecherche) references dateC(idDate);
 alter table recherche add foreign key(idTimeSearch) references timeOfDay(idTime);
+alter table recherche add foreign key(idQuartier) references timeOfDay(idTime);
