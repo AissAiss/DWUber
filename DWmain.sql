@@ -32,7 +32,7 @@ create table dateC
     yearC varchar2(50),
     fiscalYearMonth varchar2(50),
     holiday boolean,
-    weekday boolean
+    weekdayC boolean
 
 
 );
