@@ -1,10 +1,11 @@
+drop table recherche;
+drop table course;
 drop table utilisateur;
 drop table adresse;
 drop table dateC;
 drop table chauffeur;
 drop table timeOfDay;
-drop table recherche;
-drop table course;
+
 
 create table utilisateur
 (
