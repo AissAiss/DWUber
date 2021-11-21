@@ -1,10 +1,10 @@
 drop table search;
 drop table ride;
 drop table userUber;
-drop table district;
-drop table driver;
 drop table dateC;
+drop table driver;
 drop table timeOfDay;
+drop table district;
 
 
 
