@@ -1,6 +1,6 @@
 drop table search;
 drop table ride;
-drop table user;
+drop table userUber;
 drop table adresse;
 drop table dateC;
 drop table driver;
@@ -8,7 +8,7 @@ drop table timeOfDay;
 drop table district;
 
 
-create table user
+create table userUber
 (
     id integer primary key,
     firstName varchar2(50),
@@ -93,7 +93,7 @@ create table ride
     travelTime integer
 );
 
-alter table ride add foreign key(idUser) references user(id);
+alter table ride add foreign key(idUser) references userUber(id);
 alter table ride add foreign key(idDistrictDep) references district(idDistrict);
 alter table ride add foreign key(idDistrictArr) references district(idDistrict);
 alter table ride add foreign key(idDate) references dateC(idDate);
