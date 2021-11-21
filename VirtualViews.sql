@@ -12,15 +12,66 @@ drop view arr_district;
 
 
 
-create view ride_date as select * from dateC;
-create view search_date as select * from dateC;
+CREATE view ride_date AS SELECT * FROM dateC;
+CREATE view search_date AS SELECT * FROM dateC;
 
-create view search_time as select * from timeOfDay;
-create view order_time as select * from timeOfDay;
-create view dep_time as select * from timeOfDay;
-create view arr_time as select * from timeOfDay;
+CREATE view search_time AS SELECT * FROM timeOfDay;
+CREATE view order_time AS SELECT * FROM timeOfDay;
+CREATE view dep_time AS SELECT * FROM timeOfDay;
+CREATE view arr_time AS SELECT * FROM timeOfDay;
 
 
-create view search_district as select * from district;
-create view dep_district as select * from district;
-create view arr_district as select * from district;
+CREATE view search_district AS SELECT * FROM district;
+CREATE view dep_district AS SELECT * FROM district;
+CREATE view arr_district AS SELECT * FROM district;
+
+drop view courses_View;
+drop view RideView;
+drop view Prix_View;
+
+drop view driver_View;
+drop view free_driver_View;
+drop view WaitingAVG_View;
+
+CREATE MATERIALIZED VIEW
+courses_View (idDate, idDistrictDep, nb_Courses )
+AS
+SELECT idDate,idDistrictDep,count(idDate)
+FROM ride
+GROUP BY idDate, idDistrictDep;
+
+CREATE MATERIALIZED VIEW
+RideView (idDate, idDistrictDep, CA_district )
+AS
+SELECT idDate,idDistrictDep,SUM(price)
+FROM ride
+GROUP BY idDate, idDistrictDep;
+
+
+CREATE MATERIALIZED VIEW
+Prix_View ( idDistrictDep, PrixMoyen )
+AS
+SELECT idDistrictDep, idDate,SUM(price)
+FROM ride
+GROUP BY  idDistrictDep, idDate;
+
+CREATE MATERIALIZED VIEW
+driver_View ( idDateSearch, idDistrict, NbChauffeurs )
+AS
+SELECT idDateSearch, idDistrict,SUM(nbDriver)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
+
+CREATE MATERIALIZED VIEW
+free_driver_View ( idDateSearch, idDistrict, NbChauffeursLibres )
+AS
+SELECT idDateSearch, idDistrict,SUM(nbFreeDriver)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
+
+CREATE MATERIALIZED VIEW
+WaitingAVG_View ( idDateSearch, idDistrict, TempsAttenteMoyen )
+AS
+SELECT idDateSearch, idDistrict,AVG(AverageWaiting)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
