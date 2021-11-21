@@ -1,3 +1,7 @@
+drop view ride_date;
+
+
+
 create view ride_date as select * from dateC;
 create view search_date as select * from dateC;
 
