@@ -1,10 +1,11 @@
-drop table timeOfDay;
-drop table dateC;
 drop table search;
 drop table ride;
 drop table userUber;
 drop table district;
 drop table driver;
+drop table dateC;
+drop table timeOfDay;
+
 
 
 
