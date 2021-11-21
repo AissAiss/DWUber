@@ -1,14 +1,14 @@
-drop table recherche;
-drop table course;
-drop table utilisateur;
+drop table search;
+drop table ride;
+drop table user;
 drop table adresse;
 drop table dateC;
-drop table chauffeur;
+drop table driver;
 drop table timeOfDay;
-drop table lieu;
+drop table district;
 
 
-create table utilisateur
+create table user
 (
     id integer primary key,
     firstName varchar2(50),
@@ -29,9 +29,9 @@ create table dateC
     weekdayC integer
 );
 
-create table chauffeur
+create table driver
 (
-    idChauffeur integer primary key,
+    idDriver integer primary key,
     firstName varchar2(50),
     lastName varchar2(50)
 );
@@ -46,57 +46,63 @@ create table timeOfDay
     AMPM varchar2(2)
 );
 
- create table lieu
+ create table district
  (
-    idLieu integer primary key,
+    idDistrict integer primary key,
     codePostal integer,
-    ville varchar2(50),
-    nomQuartier varchar2(50),
-    revenuMoyen integer,
-    populationQuartier integer 
+    city varchar2(50),
+    districtName varchar2(50),
+    averageSalary integer,
+    districtPopulation integer 
  );
 
 
 
-create table course
+create table search
 (
-    idUtilisateur integer ,
-    idLieDep integer ,
-    idLieuArr integer  ,
+    idDateSearch integer ,
+    idTimeSearch integer ,
+    idDistrict integer ,
+    nbSearch integer,
+    nbSearchSucc integer,
+    nbSearchUnsucc integer,
+    UnsuccNbSearch float(3), -- ratio de recherches non abouties par rapport au nombre de recherche
+    SuccNbSearch float(3), -- ratio de recherches abouties par rapport au nombre de recherche
+    nbDriver integer,
+    nbFreeDriver integer,
+    nbOccDriver integer,
+    freeNbDriver float(3), -- ration chauffeurs libres/ nombvre de chauffeur
+    OccNbDriver float(3), -- ration chauffeurs occupés/ nombvre de chauffeur
+    AverageWaiting integer -- en minutes
+);
+
+create table ride
+(
+    idUser integer ,
+    idDistrictDep integer ,
+    idDistrictArr integer  ,
     idDate integer  ,
     idDriver integer  ,
     idOrderTime integer  ,
     idDepTime integer  ,
     idArrTime integer  ,
-    prix float,
+    price float,
     note integer,
-    disatance float
+    distance float,
+    waintingTime integer,
+    travelTime integer
 );
 
-create table recherche
-(
-    idDateRecherche integer ,
-    idTimeSearch integer ,
-    idQuartier integer ,
-    nbRecherche integer,
-    nbRechercheNA integer,
-    nbRechercheA integer,
-    ratioRechRechNA float(3),
-    nbTaxiLibres integer,
-    nbTaxiOccupes integer,
-    tempsAttenteMoyen integer
-);
-
-alter table course add foreign key(idUtilisateur) references utilisateur(id);
-alter table course add foreign key(idLieDep) references lieu(idLieu);
-alter table course add foreign key(idLieuArr) references lieu(idLieu);
-alter table course add foreign key(idDate) references dateC(idDate);
-alter table course add foreign key(idDriver) references chauffeur(idChauffeur);
-alter table course add foreign key(idOrderTime) references timeOfDay(idTime);
-alter table course add foreign key(idDepTime) references timeOfDay(idTime);
-alter table course add foreign key(idArrTime) references timeOfDay(idTime);
+alter table ride add foreign key(idUser) references user(id);
+alter table ride add foreign key(idDistrictDep) references district(idDistrict);
+alter table ride add foreign key(idDistrictArr) references district(idDistrict);
+alter table ride add foreign key(idDate) references dateC(idDate);
+alter table ride add foreign key(idDriver) references driver(idDriver);
+alter table ride add foreign key(idOrderTime) references timeOfDay(idTime);
+alter table ride add foreign key(idDepTime) references timeOfDay(idTime);
+alter table ride add foreign key(idArrTime) references timeOfDay(idTime);
 
 
-alter table recherche add foreign key(idDateRecherche) references dateC(idDate);
-alter table recherche add foreign key(idTimeSearch) references timeOfDay(idTime);
-alter table recherche add foreign key(idQuartier) references timeOfDay(idTime);
+alter table search add foreign key(idDateSearch) references dateC(idDate);
+alter table search add foreign key(idTimeSearch) references timeOfDay(idTime);
+alter table search add foreign key(idDistrict) references district(idDistrict);
