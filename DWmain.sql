@@ -137,3 +137,55 @@ create view arr_time as select * from timeOfDay;
 create view search_district as select * from district;
 create view dep_district as select * from district;
 create view arr_district as select * from district;
+
+
+drop view courses_View;
+drop view RideView;
+drop view Prix_View;
+
+drop view driver_View;
+drop view free_driver_View;
+drop view WaitingAVG_View;
+
+CREATE MATERIALIZED VIEW
+courses_View (idDate, idDistrictDep, nb_Courses )
+AS
+SELECT idDate,idDistrictDep,count(idDate)
+FROM ride
+GROUP BY idDate, idDistrictDep;
+
+CREATE MATERIALIZED VIEW
+RideView (idDate, idDistrictDep, CA_district )
+AS
+SELECT idDate,idDistrictDep,SUM(price)
+FROM ride
+GROUP BY idDate, idDistrictDep;
+
+
+CREATE MATERIALIZED VIEW
+Prix_View ( idDistrictDep, PrixMoyen )
+AS
+SELECT idDistrictDep, idDate,SUM(price)
+FROM ride
+GROUP BY  idDistrictDep, idDate;
+
+CREATE MATERIALIZED VIEW
+driver_View ( idDateSearch, idDistrict, NbChauffeurs )
+AS
+SELECT idDateSearch, idDistrict,SUM(nbDriver)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
+
+CREATE MATERIALIZED VIEW
+free_driver_View ( idDateSearch, idDistrict, NbChauffeursLibres )
+AS
+SELECT idDateSearch, idDistrict,SUM(nbFreeDriver)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
+
+CREATE MATERIALIZED VIEW
+WaitingAVG_View ( idDateSearch, idDistrict, TempsAttenteMoyen )
+AS
+SELECT idDateSearch, idDistrict,AVG(AverageWaiting)
+FROM search
+GROUP BY  idDateSearch, idDistrict;
