@@ -1,10 +1,10 @@
 drop table search;
 drop table ride;
 drop table userUber;
+drop table district;
 drop table dateC;
 drop table driver;
 drop table timeOfDay;
-drop table district;
 
 
 create table userUber
@@ -55,7 +55,22 @@ create table timeOfDay
     districtPopulation integer 
  );
 
-
+create table ride
+(
+    idUser integer ,
+    idDistrictDep integer ,
+    idDistrictArr integer  ,
+    idDate integer  ,
+    idDriver integer  ,
+    idOrderTime integer  ,
+    idDepTime integer  ,
+    idArrTime integer  ,
+    price float,
+    note integer,
+    distance float,
+    waintingTime integer,
+    travelTime integer
+);
 
 create table search
 (
@@ -75,22 +90,7 @@ create table search
     AverageWaiting integer -- en minutes
 );
 
-create table ride
-(
-    idUser integer ,
-    idDistrictDep integer ,
-    idDistrictArr integer  ,
-    idDate integer  ,
-    idDriver integer  ,
-    idOrderTime integer  ,
-    idDepTime integer  ,
-    idArrTime integer  ,
-    price float,
-    note integer,
-    distance float,
-    waintingTime integer,
-    travelTime integer
-);
+
 
 alter table ride add foreign key(idUser) references userUber(id);
 alter table ride add foreign key(idDistrictDep) references district(idDistrict);
