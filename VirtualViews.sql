@@ -1,4 +1,14 @@
 drop view ride_date;
+drop view search_date;
+
+drop view search_time;
+drop view order_time;
+drop view dep_time;
+drop view arr_time;
+
+drop view search_district;
+drop view dep_district;
+drop view arr_district;
 
 
 
