@@ -65,7 +65,7 @@ for j in range(0,7):
         compteurId = compteurId +1
         NbDriver = random.randint(0, 50)
         waiting = random.randint(60,120)
-        file.write("INSERT INTO " + RECHERCHE + " VALUES (" + str(compteurId) + ", " + str(compteurId) + ", " + str(compteurId) + "," + str(NbDriver) + "," + str(0) + "," + str(NbDriver) + "," + str(0) + "," + str(1) + "," + str(waiting) + ");\n")
+        
         Revenu = random.randint(1200, 10000)
         Population = round(random.gauss(100, 50))
         n = random.randint(0, len(df_rue)-1)
@@ -84,7 +84,7 @@ for j in range(0,7):
         m = random.randint(0, 59)
         s = random.randint(0, 59)
         file.write("INSERT INTO " + TOD + " VALUES (" + str(compteurId) + ",'"+ "null" +"'," + str(h) + "," + str(m) + "," + str(s) + ",'" + is_AMPM(h) + "');\n")
-
+        file.write("INSERT INTO " + RECHERCHE + " VALUES (" + str(compteurId) + ", " + str(compteurId) + ", " + str(compteurId) + "," + str(NbDriver) + "," + str(0) + "," + str(NbDriver) + "," + str(0) + "," + str(1) + "," + str(waiting) + ");\n")
 
 
 
