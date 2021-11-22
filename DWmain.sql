@@ -79,11 +79,11 @@ create table search
     idDateSearch integer ,
     idTimeSearch integer ,
     idDistrict integer ,
-    nbSearch integer,
-    nbSearchSucc integer,
-    nbSearchUnsucc integer,
-    UnsuccNbSearch float(3), -- ratio de recherches non abouties par rapport au nombre de recherche
-    SuccNbSearch float(3), -- ratio de recherches abouties par rapport au nombre de recherche
+   -- nbSearch integer,
+   -- nbSearchSucc integer,
+    --nbSearchUnsucc integer,
+    --UnsuccNbSearch float(3), -- ratio de recherches non abouties par rapport au nombre de recherche
+   -- SuccNbSearch float(3), -- ratio de recherches abouties par rapport au nombre de recherche
     nbDriver integer,
     nbFreeDriver integer,
     nbOccDriver integer,
