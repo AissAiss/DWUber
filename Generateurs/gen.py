@@ -83,7 +83,7 @@ for j in range(0,7):
         h = random.randint(0, 23)
         m = random.randint(0, 59)
         s = random.randint(0, 59)
-        file.write("INSERT INTO " + TOD + " VALUES (" + str(compteurId) + ",'"+ "null" +"'," + str(h) + "," + str(m) + "," + str(s) + "," + is_AMPM(h) + ");\n")
+        file.write("INSERT INTO " + TOD + " VALUES (" + str(compteurId) + ",'"+ "null" +"'," + str(h) + "," + str(m) + "," + str(s) + ",'" + is_AMPM(h) + "');\n")
 
 
 
