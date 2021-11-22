@@ -79,7 +79,7 @@ for j in range(0,7):
         
         date = "TO_DATE('"+str(day)+"-"+str(month)+"-2020','DD-MM-YYYY')"
         
-        file.write("INSERT INTO " + DATE + " VALUES (" + str(compteurId) + ", '" + date + "','"+ "null" +"','" + dayofWeek[j] + "','" + monthOfYear[month-1] + "','" + "2020" + "'," + str(is_Holiday(month, day))+ "," + str(is_Week(j))+ ");\n")
+        file.write("INSERT INTO " + DATE + " VALUES (" + str(compteurId) + ", " + date + ",'"+ "null" +"','" + dayofWeek[j] + "','" + monthOfYear[month-1] + "','" + "2020" + "'," + str(is_Holiday(month, day))+ "," + str(is_Week(j))+ ");\n")
         h = random.randint(0, 23)
         m = random.randint(0, 59)
         s = random.randint(0, 59)
