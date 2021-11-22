@@ -62,7 +62,7 @@ for j in range(0,7):
     if j == 6:
         nbRNAjours = round(random.gauss(150, 20))
     for i in range(0, nbRNAjours):
-        compteurId = compteurId +1
+        
         NbDriver = random.randint(0, 50)
         waiting = random.randint(60,120)
         
@@ -85,7 +85,7 @@ for j in range(0,7):
         s = random.randint(0, 59)
         file.write("INSERT INTO " + TOD + " VALUES (" + str(compteurId) + ",'"+ "null" +"'," + str(h) + "," + str(m) + "," + str(s) + ",'" + is_AMPM(h) + "');\n")
         file.write("INSERT INTO " + RECHERCHE + " VALUES (" + str(compteurId) + ", " + str(compteurId) + ", " + str(compteurId) + "," + str(NbDriver) + "," + str(0) + "," + str(NbDriver) + "," + str(0) + "," + str(1) + "," + str(waiting) + ");\n")
-
+        compteurId = compteurId +1
 
 
 
