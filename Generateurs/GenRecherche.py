@@ -63,7 +63,7 @@ for m in range(1, 13, 1):
 cmt = 0
 for h in range(0, 24): 
     for m in range(0, 60): 
-        file.write("INSERT INTO " + TOD + " VALUES (" + str(cmt) + ", " + str(h) + ", " + str(m) + ", " + str(0) + ",'"+ is_AMPM(h) +"');\n")
+        file.write("INSERT INTO " + TOD + " VALUES (" + str(cmt) + ",'"+"null"+"', " + str(h) + ", " + str(m) + ", " + str(0) + ",'"+ is_AMPM(h) +"');\n")
         cmt+=1
 
 
