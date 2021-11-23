@@ -6971,7 +6971,7 @@ MONTPELLIER CENTRE
 <br>
 
 
-SQL&gt; SPOOL OFF;
+SQL&gt; SPOOL OFF;exit
 <br>
 </body>
 </html>
