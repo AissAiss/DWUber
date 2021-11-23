@@ -21,11 +21,9 @@ create table dateC
 (
     idDate integer primary key,
     dateCourante date,
-    fullDateDesc varchar(50),
     dayOfWeek varchar2(50),
     monthC varchar2(50),
     yearC varchar2(50),
-    fiscalYearMonth varchar2(50),
     holiday integer,
     weekdayC integer
 );
