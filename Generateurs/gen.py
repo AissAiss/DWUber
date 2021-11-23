@@ -35,14 +35,8 @@ file = open("GenRide" + ".txt", "w")
 nbRNAjours = random.randint(50, 150)
 
 
-for j in range(0,7):
-    if j == 6:
-        nbRNAjours = round(random.randint(20, 80))
-    for i in range(0, nbRNAjours):
-        
-
-
-        
+for i in range(0,30):
+    for j in range(0, random.randint(30, 100)):
         note = random.randrange(1, 5)
         distance = random.gauss(40, 5)
         if distance <= 2:
@@ -71,7 +65,7 @@ for j in range(0,7):
         #Faire insert to Course
         
         
-        file.write("INSERT INTO " + COURSE + " VALUES (" + str(idUser) + ", " + str(idDistrictDep) + ", " + str(idDistrictArr) + "," + str(idDate) + "," + str(idDriver) + "," + str(idOrderTime) + "," + str(idArrTime) + "," + str(idDepTime) + "," + str(round(price)) + "," + str(note) + "," + str(round(distance)) + "," + str(round(waiting)) + "," + str(round(time)) + ");\n")
+        file.write("INSERT INTO " + COURSE + " VALUES (" + str(idUser) + ", " + str(idDistrictDep) + ", " + str(idDistrictArr) + "," + str(i) + "," + str(idDriver) + "," + str(idOrderTime) + "," + str(idDepTime) + "," + str(idArrTime) + "," + str(round(price)) + "," + str(note) + "," + str(round(distance)) + "," + str(round(waiting)) + "," + str(round(time)) + ");\n")
 
 
 
